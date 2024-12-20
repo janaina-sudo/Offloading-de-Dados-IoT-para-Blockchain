@@ -5,6 +5,10 @@ const app = express();
 
 app.use(express.json()); 
 
+app.get('/health', (req, res) => {
+    res.status(200).send({ status: 'Funcionando', message: 'O servidor está funcionando!' });
+});
+
 app.post('/createAsset', async (req, res) => {
     const { ID, Color, Size, Owner, AppraisedValue } = req.body;
 
