@@ -1,4 +1,3 @@
-// fabricClient.js
 'use strict';
 
 const { Gateway, Wallets } = require('fabric-network');
