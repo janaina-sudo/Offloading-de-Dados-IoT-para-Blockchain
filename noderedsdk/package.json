@@ -1,0 +1,41 @@
+{
+  "name": "asset-transfer-basic",
+  "version": "1.0.0",
+  "description": "Asset Transfer Basic Application implemented in typeScript using fabric-gateway",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "lint": "eslint src",
+    "prepare": "npm run build",
+    "pretest": "npm run lint",
+    "start": "node servidor.js"
+  },
+  "engineStrict": true,
+  "author": "Hyperledger",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.5",
+    "@hyperledger/fabric-gateway": "^1.7.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/express": "^5.0.0",
+    "@types/node": "^18.18.6",
+    "eslint": "^8.57.0",
+    "typescript": "~5.4",
+    "typescript-eslint": "^7.13.0"
+  },
+  "keywords": []
+}
