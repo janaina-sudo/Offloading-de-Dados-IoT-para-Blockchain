@@ -1,0 +1,313 @@
+[
+    {
+        "id": "c718c31fb091a1e4",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e4e756df27c18f73",
+        "type": "inject",
+        "z": "c718c31fb091a1e4",
+        "name": "Inject - Request health",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "dc9332879e78bee9"
+            ]
+        ]
+    },
+    {
+        "id": "dc9332879e78bee9",
+        "type": "http request",
+        "z": "c718c31fb091a1e4",
+        "name": "GET - Health",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/health",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "e06ca4049a502c8a"
+            ]
+        ]
+    },
+    {
+        "id": "e06ca4049a502c8a",
+        "type": "debug",
+        "z": "c718c31fb091a1e4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e3934eac5fd1fb15",
+        "type": "http request",
+        "z": "c718c31fb091a1e4",
+        "name": "GET - Data Assets",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/assets",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 910,
+        "y": 240,
+        "wires": [
+            [
+                "500b63ce6e294dd8"
+            ]
+        ]
+    },
+    {
+        "id": "500b63ce6e294dd8",
+        "type": "debug",
+        "z": "c718c31fb091a1e4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "93ca7f5fc70595d9",
+        "type": "http request",
+        "z": "c718c31fb091a1e4",
+        "name": "POST - Data",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/assets/create",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "msg",
+                "keyValue": "",
+                "valueType": "msg",
+                "valueValue": ""
+            }
+        ],
+        "x": 1130,
+        "y": 420,
+        "wires": [
+            [
+                "4a79244504fb5498"
+            ]
+        ]
+    },
+    {
+        "id": "4a79244504fb5498",
+        "type": "debug",
+        "z": "c718c31fb091a1e4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c3d5015178b85f61",
+        "type": "http request",
+        "z": "c718c31fb091a1e4",
+        "name": "GET - Asset Id",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/assets/asset20",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 900,
+        "y": 340,
+        "wires": [
+            [
+                "b363f6464e5ba5b7"
+            ]
+        ]
+    },
+    {
+        "id": "b363f6464e5ba5b7",
+        "type": "debug",
+        "z": "c718c31fb091a1e4",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d7f784f6bf0a9196",
+        "type": "inject",
+        "z": "c718c31fb091a1e4",
+        "name": "Inject - Data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "envio",
+        "payloadType": "str",
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "17215e9d180458e4"
+            ]
+        ]
+    },
+    {
+        "id": "c32a93df1043ea7d",
+        "type": "inject",
+        "z": "c718c31fb091a1e4",
+        "name": "Inject - Request GET Allassets",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "e3934eac5fd1fb15"
+            ]
+        ]
+    },
+    {
+        "id": "66a198b5c6372ef4",
+        "type": "inject",
+        "z": "c718c31fb091a1e4",
+        "name": "Inject - Request GET asset ID",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 640,
+        "y": 340,
+        "wires": [
+            [
+                "c3d5015178b85f61"
+            ]
+        ]
+    },
+    {
+        "id": "17215e9d180458e4",
+        "type": "function",
+        "z": "c718c31fb091a1e4",
+        "name": "function 1",
+        "func": "const assets = [\n    {\n        \"assetId\": \"asset12\",\n        \"color\": \"red\",\n        \"size\": 9,\n        \"name\": \"Joana dos Santos\",\n        \"value\": 1500\n    },\n    {\n        \"assetId\": \"asset13\",\n        \"color\": \"blue\",\n        \"size\": 10,\n        \"name\": \"Mateus Souza\",\n        \"value\": 2000\n    },\n    {\n        \"assetId\": \"asset14\",\n        \"color\": \"green\",\n        \"size\": 8,\n        \"name\": \"Maria Clara\",\n        \"value\": 1750\n    },\n    {\n        \"assetId\": \"asset15\",\n        \"color\": \"yellow\",\n        \"size\": 7,\n        \"name\": \"Pedro Costa\",\n        \"value\": 1800\n    },\n    {\n        \"assetId\": \"asset16\",\n        \"color\": \"black\",\n        \"size\": 12,\n        \"name\": \"Ana Souza\",\n        \"value\": 2100\n    },\n    {\n        \"assetId\": \"asset17\",\n        \"color\": \"white\",\n        \"size\": 11,\n        \"name\": \"Matheus Fernandes\",\n        \"value\": 2300\n    }\n];\n\nlet sentAssets = context.get('sentAssets') || [];\n\nif (sentAssets.length === assets.length) {\n    node.warn(\"Todos os ativos já foram enviados\");\n    return null; \n}\n\nfunction getUniqueAsset(assets, sentAssets) {\n    let uniqueAsset;\n    let availableAssets = assets.filter(asset => !sentAssets.includes(asset.assetId));\n\n    if (availableAssets.length > 0) {\n        uniqueAsset = availableAssets[Math.floor(Math.random() * availableAssets.length)];\n    }\n\n    return uniqueAsset;\n}\n\nlet assetToSend = getUniqueAsset(assets, sentAssets);\n\nif (assetToSend) {\n    sentAssets.push(assetToSend.assetId);\n    context.set('sentAssets', sentAssets);\n    msg.payload = assetToSend;\n\n    return msg;\n} else {\n    node.warn(\"Nenhum ativo disponível para enviar\");\n    return null; \n}\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 420,
+        "wires": [
+            [
+                "93ca7f5fc70595d9"
+            ]
+        ]
+    }
+]
